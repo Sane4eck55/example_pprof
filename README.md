@@ -14,7 +14,7 @@ func main() {
     // остальной код вашего приложения
 }
 
-CPU профиль
+### CPU профиль 
 Выполните запрос к /debug/pprof/profile?seconds=30 (например, через браузер или curl) или используйте команду:
 go tool pprof http://localhost:6060/debug/pprof/profile?seconds=30
 
