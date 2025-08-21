@@ -1,5 +1,7 @@
 # example_pprof
 
+### 1. встраиваем в наш код
+```
 import (
     "net/http"
     _ "net/http/pprof"
@@ -13,38 +15,42 @@ func main() {
 
     // остальной код вашего приложения
 }
+```
+### 2. Собираем данные для анализа
 
-### CPU профиль 
+### CPU профиль
 Выполните запрос к /debug/pprof/profile?seconds=30 (например, через браузер или curl) или используйте команду:
 go tool pprof http://localhost:6060/debug/pprof/profile?seconds=30
 
-Heap (память)
+### Heap (память)
 Для получения информации о выделенной памяти:
-bash
+```bash
 
 go tool pprof http://localhost:6060/debug/pprof/heap
+```
+### Goroutines (состояние горутин)
 
-Goroutines (состояние горутин)
-
-bash
+```bash
 
 go tool pprof http://localhost:6060/debug/pprof/goroutine
-Block profile (блокировки)
+```
+### Block profile (блокировки)
 
-bash
+```bash
 
 go tool pprof http://localhost:6060/debug/pprof/block
-
-
-3. Анализ профилей
+```
+### 3. Анализ профилей
 После получения файла профиля (.pb.gz), откройте его командой:
 
-bash
+```bash
 
 go tool pprof <файл_профиля>
-
-. Визуализация результатов (дял mac выполнить brew install graphviz, после установки dot -V проверить все ли устаноилось )
+```
+### Визуализация результатов 
+для mac выполнить brew install graphviz, после установки dot -V проверить все ли устаноилось
+```bash
 (pprof) web
-
+```
 
 https://github.com/google/pprof/blob/main/doc/README.md#interpreting-the-callgraph
